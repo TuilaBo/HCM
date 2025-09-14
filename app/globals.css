@@ -1,0 +1,331 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  /* Updated color scheme to red theme for Ho Chi Minh website - light mode only */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.35 0.02 258.34);
+  --card: oklch(0.99 0.01 15.68);
+  --card-foreground: oklch(0.35 0.02 258.34);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.35 0.02 258.34);
+  --primary: oklch(0.55 0.22 15.68);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.99 0.01 15.68);
+  --secondary-foreground: oklch(0.35 0.02 258.34);
+  --muted: oklch(0.97 0.01 15.68);
+  --muted-foreground: oklch(0.55 0.02 258.34);
+  --accent: oklch(0.65 0.25 340.89);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.01 15.68);
+  --input: oklch(1 0 0);
+  --ring: oklch(0.55 0.22 15.68);
+  --chart-1: oklch(0.55 0.22 15.68);
+  --chart-2: oklch(0.65 0.25 340.89);
+  --chart-3: oklch(0.7 0.15 25.68);
+  --chart-4: oklch(0.45 0.18 15.68);
+  --chart-5: oklch(0.8 0.12 340.89);
+  --radius: 0.5rem;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.35 0.02 258.34);
+  --sidebar-primary: oklch(0.55 0.22 15.68);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.65 0.25 340.89);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.92 0.01 15.68);
+  --sidebar-ring: oklch(0.55 0.22 15.68);
+}
+
+@theme inline {
+  /* Updated font variables to use Inter and JetBrains Mono for better Vietnamese support */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --chart-1: var(--chart-1);
+  --chart-2: var(--chart-2);
+  --chart-3: var(--chart-3);
+  --chart-4: var(--chart-4);
+  --chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Refined animations to be much smoother and less jarring */
+@keyframes gentleFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentleFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gentleFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gentleScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gentleSlideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtlePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes subtleFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Updated animation classes with gentler, smoother effects */
+.animate-smooth-fade-in-up {
+  animation: gentleFadeInUp 1s ease-out forwards;
+}
+
+.animate-smooth-fade-in-left {
+  animation: gentleFadeInLeft 1s ease-out forwards;
+}
+
+.animate-smooth-fade-in-right {
+  animation: gentleFadeInRight 1s ease-out forwards;
+}
+
+.animate-smooth-scale-in {
+  animation: gentleScaleIn 1s ease-out forwards;
+}
+
+.animate-smooth-slide-in-down {
+  animation: gentleSlideInDown 1s ease-out forwards;
+}
+
+.animate-gentle-pulse {
+  animation: subtlePulse 4s ease-in-out infinite;
+}
+
+.animate-smooth-float {
+  animation: subtleFloat 6s ease-in-out infinite;
+}
+
+.animate-slide-in-from-bottom {
+  animation: slideInFromBottom 1s ease-out forwards;
+}
+
+/* Smoother staggered animation delays */
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+.animate-delay-200 {
+  animation-delay: 0.2s;
+}
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
+.animate-delay-400 {
+  animation-delay: 0.4s;
+}
+.animate-delay-500 {
+  animation-delay: 0.5s;
+}
+.animate-delay-600 {
+  animation-delay: 0.6s;
+}
+.animate-delay-700 {
+  animation-delay: 0.7s;
+}
+.animate-delay-800 {
+  animation-delay: 0.8s;
+}
+.animate-delay-900 {
+  animation-delay: 0.9s;
+}
+.animate-delay-1000 {
+  animation-delay: 1s;
+}
+
+/* Much smoother transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter;
+  transition-timing-function: ease-out;
+  transition-duration: 400ms;
+}
+
+/* Refined hover effects that are subtle and smooth */
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.2);
+}
+
+.hover-smooth:hover {
+  transform: translateY(-1px);
+  transition: all 0.4s ease-out;
+}
+
+/* Added zoom-stable container system to prevent layout shifting */
+.zoom-stable-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: clamp(1rem, 4vw, 2rem);
+  padding-right: clamp(1rem, 4vw, 2rem);
+  position: relative;
+}
+
+.zoom-stable-full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* Fixed header positioning to prevent zoom shifting */
+.zoom-stable-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 50;
+  transform: translateZ(0); /* Force hardware acceleration */
+  backface-visibility: hidden; /* Prevent flickering */
+}
+
+/* Improved grid system to handle zoom better */
+.zoom-stable-grid {
+  display: grid;
+  gap: clamp(1rem, 3vw, 2rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  width: 100%;
+}
+
+/* Fixed aspect ratios for images to prevent layout shifts */
+.zoom-stable-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Stable card heights regardless of content */
+.zoom-stable-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  height: 100%;
+}
+
+.zoom-stable-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.zoom-stable-card-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+}
