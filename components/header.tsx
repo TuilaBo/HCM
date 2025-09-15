@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { LanguageToggle } from "@/components/language-toggle"
 import { useLanguage } from "@/contexts/language-context"
 import { cn } from "@/lib/utils"
 
@@ -49,11 +48,6 @@ export function Header() {
             </Link>
           ))}
         </nav>
-
-        {/* Controls */}
-        <div className="flex items-center space-x-2 animate-fade-in-right animate-delay-300">
-          <LanguageToggle />
-        </div>
       </div>
     </header>
   )

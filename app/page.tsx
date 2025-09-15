@@ -31,6 +31,7 @@ const features = [
   },
 ]
 
+// Highlights: cập nhật theo nội dung bạn yêu cầu
 const ideologyHighlights = [
   {
     icon: Star,
@@ -44,15 +45,14 @@ const ideologyHighlights = [
     titleVi: "Dân là gốc",
     titleEn: "People as Foundation",
     descriptionVi: "Tư tưởng 'dân là gốc' - đặt nhân dân làm trung tâm của mọi hoạt động cách mạng",
-    descriptionEn:
-      "The ideology of 'people as foundation' - placing people at the center of all revolutionary activities",
+    descriptionEn: "The ideology of 'people as foundation' - placing the people at the center of all revolutionary activities",
   },
   {
     icon: Award,
     titleVi: "Độc lập - Tự do",
     titleEn: "Independence - Freedom",
     descriptionVi: "Kết hợp hài hòa giữa độc lập dân tộc và giải phóng xã hội",
-    descriptionEn: "Harmonious combination of national independence and social liberation",
+    descriptionEn: "A harmonious combination of national independence and social liberation",
   },
   {
     icon: Heart,
@@ -108,6 +108,7 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Hero Image */}
         <section className="mb-20 animate-smooth-fade-in-up animate-delay-500">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl hover-lift">
             <img
@@ -127,6 +128,7 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Highlights: ép 4 card trên 1 hàng, không xuống dòng */}
         <section className="mb-20">
           <div className="text-center mb-12 animate-smooth-fade-in-up animate-delay-600">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -138,7 +140,9 @@ export default function HomePage() {
                 : "Ho Chi Minh's ideology on socialism and building socialism in Vietnam"}
             </p>
           </div>
-          <div className="zoom-stable-grid">
+
+          {/* Luôn 4 cột / 1 hàng — không wrap */}
+          <div className="grid grid-cols-4 gap-6">
             {ideologyHighlights.map((highlight, index) => {
               const Icon = highlight.icon
               return (

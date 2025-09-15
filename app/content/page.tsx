@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, BookOpen, Building } from "lucide-react"
+import { ArrowRight, BookOpen, Building, Landmark, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { PageLayout } from "@/components/page-layout"
@@ -11,6 +11,8 @@ import { useLanguage } from "@/contexts/language-context"
 import pageContent from "../../content/page.json"
 import socialismIdeologyContent from "../../content/socialism-ideology.json"
 import buildingSocialismContent from "../../content/building-socialism.json"
+import buildingSocialismVietnamContent from "../../content/building-socialism-vietnam.json"
+import socialismMotivationContent from "../../content/socialism-motivation.json"
 
 // Danh sách các section chính
 const allContentSections = [
@@ -25,6 +27,18 @@ const allContentSections = [
     icon: Building,
     href: "/content/building-socialism",
     data: buildingSocialismContent,
+  },
+  {
+    id: "building-socialism-vietnam",
+    icon: Landmark,
+    href: "/content/building-socialism-vietnam",
+    data: buildingSocialismVietnamContent,
+  },
+  {
+    id: "socialism-motivation",
+    icon: Users,
+    href: "/content/socialism-motivation",
+    data: socialismMotivationContent,
   },
 ]
 
@@ -56,7 +70,7 @@ export default function ContentPage() {
             <img
               src="/ho-chi-minh-socialism-overview.jpg"
               alt="Tổng quan tư tưởng Hồ Chí Minh về chủ nghĩa xã hội"
-              className="zoom-stable-image h-64 md:h-80 object-cover"
+              className="h-64 md:h-80 w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 text-white">
@@ -71,32 +85,29 @@ export default function ContentPage() {
         </section>
 
         {/* Danh sách các card nội dung */}
-        <div
-          className="zoom-stable-grid mb-16"
-          style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(400px, 100%), 1fr))" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {allContentSections.map((section, index) => {
             const Icon = section.icon
             const localizedData = getLocalizedContent(section.data, language)
             return (
               <Card
                 key={section.id}
-                className="zoom-stable-card group hover:shadow-xl transition-all duration-500 hover:-translate-y-1 animate-smooth-fade-in-up cursor-pointer hover-lift"
+                className="group cursor-pointer hover-lift hover:shadow-xl hover:-translate-y-1 transition-all duration-500 animate-smooth-fade-in-up"
                 style={{ animationDelay: `${0.5 + index * 0.2}s` }}
               >
                 <CardHeader className="text-center pb-6 flex-shrink-0">
-                  <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-105 animate-smooth-float">
+                  <div className="mx-auto h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:scale-105 transition-all duration-300 animate-smooth-float">
                     <Icon className="h-8 w-8 text-primary transition-all duration-300 group-hover:scale-105" />
                   </div>
-                  <CardTitle className="text-xl lg:text-2xl transition-colors duration-300 group-hover:text-primary text-balance min-h-[4rem] flex items-center justify-center">
+                  <CardTitle className="text-xl lg:text-2xl text-balance min-h-[4rem] flex items-center justify-center transition-colors duration-300 group-hover:text-primary">
                     {localizedData.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="zoom-stable-card-content text-center space-y-6">
-                  <CardDescription className="text-base leading-relaxed transition-colors duration-300 group-hover:text-foreground flex-grow min-h-[6rem] flex items-center">
+                <CardContent className="text-center space-y-6 flex flex-col h-full">
+                  <CardDescription className="text-base leading-relaxed flex-grow min-h-[6rem] flex items-center justify-center transition-colors duration-300 group-hover:text-foreground">
                     {localizedData.description}
                   </CardDescription>
-                  <div className="zoom-stable-card-footer">
+                  <div>
                     <Button
                       asChild
                       size="lg"
@@ -113,34 +124,6 @@ export default function ContentPage() {
             )
           })}
         </div>
-
-        {/* Key Concepts Overview */}
-        <section className="bg-card rounded-2xl p-8 md:p-12 animate-smooth-fade-in-up animate-delay-700 hover:shadow-lg transition-all duration-500">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-4 animate-smooth-scale-in animate-delay-800">
-              {pageContent.keyConceptsTitle}
-            </h2>
-            <p className="text-lg text-muted-foreground animate-smooth-fade-in-up animate-delay-900">
-              {pageContent.keyConceptsDescription}
-            </p>
-          </div>
-          <div
-            className="zoom-stable-grid"
-            style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(250px, 100%), 1fr))" }}
-          >
-            {pageContent.keyConcepts.map((concept: any, index: number) => (
-              <div key={index} className="text-center space-y-3 animate-smooth-fade-in-up animate-delay-1000">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                  <span className="text-primary font-bold text-lg">{concept.number}</span>
-                </div>
-                <h3 className="font-semibold">{concept.title}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {concept.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
       </div>
     </PageLayout>
   )
